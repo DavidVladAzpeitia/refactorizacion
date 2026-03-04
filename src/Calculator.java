@@ -1,23 +1,30 @@
-
 public class Calculator {
 
-   
-    public double calcular(double a, double b, String operacion) {
-    if (operacion.equals("suma")) {
-        return a + b;
-    } else if (operacion.equals("potencia")) {
-        return calcularPotencia(a, b);
-    } else if (operacion.equals("raiz")) {
-        return calcularRaiz(a);
+
+    public double calcular(double operando1, double operando2, String operacion) {
+        
+        switch (operacion.toLowerCase()) {
+            case "suma":
+                return operando1 + operando2;
+                
+            case "potencia":
+                // Llamada al nuevo método extraído
+                return calcularPotencia(operando1, operando2);
+                
+            case "raiz":
+                // Llamada al nuevo método extraído
+                return calcularRaiz(operando1);
+                
+            default:
+                return 0;
+        }
     }
-    return 0;
-}
 
-private double calcularPotencia(double base, double exponente) {
-    return Math.pow(base, exponente);
-}
+    private double calcularPotencia(double base, double exponente) {
+        return Math.pow(base, exponente);
+    }
 
-private double calcularRaiz(double numero) {
-    return Math.sqrt(numero);
-}
+    private double calcularRaiz(double numero) {
+        return Math.sqrt(numero);
+    }
 }
